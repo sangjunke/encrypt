@@ -1,0 +1,42 @@
+<!--
+ * @Description: 
+ * @Autor: sangjk
+ * @Date: 2019-08-12 13:50:48
+ * @LastEditors: 
+ * @LastEditTime: 2019-08-20 10:20:05
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./cj-encrypt.css">
+</head>
+
+<body>
+    <input type="text" id="payment" placeholder="请输入密码" style="display: block;width: 200px;height: 30px;margin: 20px 0">
+    <script src="./cj-encrypt.js"></script>
+    <script>
+        // 加密
+        var cjEncrypt = new cjEncrypt();
+        cjEncrypt.keyBoardBind({
+            type: 'pay-pwd',
+            id: 'payment',
+            random: false,//键盘是否随机排列
+            checked: true,//是否检查密码难度 isSafe:false 则密码过于简单
+        }); //绑定
+        // 删除事件
+        cjEncrypt.onDelete(function (event) {
+            console.log(event) //输出删除后的明文
+        });
+        // 确认事件  输出密码 可以采取加密
+        cjEncrypt.onSure(function (event) {
+            console.log(event)
+        });
+    </script>
+</body>
+
+</html>
